@@ -6,7 +6,7 @@ using System.Web;
 
 namespace BookStore.Models
 {
-    public class BookDbInitialize
+    public class BookDbInitializer
     {
         public class BookDbInitializer : DropCreateDatabaseAlways<BookContext>
         {

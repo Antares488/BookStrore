@@ -7,7 +7,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using static BookStore.Models.BookDbInitialize;
 
 namespace BookStore
 {
@@ -15,7 +14,7 @@ namespace BookStore
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new BookDbInitializer());
+            Database.SetInitializer(new BookDbInitializer.BookDbInitializer());
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
