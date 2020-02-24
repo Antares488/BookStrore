@@ -1,4 +1,5 @@
 ﻿using BookStore.Models;
+using BookStore.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace BookStore.Controllers
 {
     public class HomeController : Controller
     {
+ 
         BookContext db = new BookContext();
         public ActionResult Index()
         {
@@ -30,15 +32,42 @@ namespace BookStore.Controllers
             db.SaveChanges();
             return "Спасибо," + purchase.Person + ",за покупку!";
         }
-            
+        [HttpGet]
+        public ActionResult GetBook()
+        {
+            return View();
+        }
+        [HttpPost]
+        public string PostBook()
+        {
+            string title = Request.Form["title"];
+            string author = Request.Form["author"];
 
-    
-    
-    
-    
+            return title + " " + author;
+        }
+        public ActionResult Gethtml()
+        {
+            return new HtmlResult("<h2>Привет мир!</h2>");
+        }
+        public ActionResult GetImage()
+        {
+            string path = "../Content/Images/facepalme.jpg";
+            return new ImageResult(path);
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 
-    
-     
-  
+
+
+
 }
